@@ -1,0 +1,3 @@
+source("automatch.R")
+automatch()
+
