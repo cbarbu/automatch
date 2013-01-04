@@ -42,9 +42,13 @@ In the precence of the R graphical package gWidgetstcltk a graphical interface w
 
 Linguistic note
 ----------------
-The dialogs in the script are in spanish at it is design mainly for our spanish speaking team, translation an english version may be considered but the simplicity of the interface makes fairly easy for a non spanish speaker to find his way.
+The dialogs in the script are by default in spanish at it mainly used by our spanish speaking team. English is supported though, simply by changing "sp" to "en" at the first line of the script.
+
+Contributing
+------------
+You are welcome to contribute to the code in the form of pull requests via GitHub. Corrections of the linguistic are particularly welcome. New languages are also welcome and should be very straight forward to add (see beginning of automatch.R). 
 
 Licensing
 ---------
 You are welcome to use, modify and redistribute this code at your will as long as you make a reference in the code to this GitHub Repo. 
-You are welcome to contribute to the code in the form of pull requests via GitHub.
+
