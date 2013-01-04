@@ -1,16 +1,161 @@
 ######################
 #### parametros
 ######################
-
+ 
+lang="sp" # ("sp" for spanish or "en" for english)
 d1correctedname<-"d1corrected.csv"
 d2correctedname<-"d2corrected.csv"
 
 ######################
+#### Messages
+######################
+ignoreWarning<-list()
+ignoreWarning[["sp"]]<-"Si hay warning, no apurarse y continuar."
+ignoreWarning[["en"]]<-"You can safely ignore warnings and go ahead."
+columnsOnlyIn<-list()
+columnsOnlyIn[["sp"]]<-"Columnas solo en:"
+columnsOnlyIn[["en"]]<-"Columns only in:"
+referenceColumns<-list()
+referenceColumns[["sp"]]<-"Escoger las columnas que van a servir de referencia:"
+referenceColumns[["en"]]<-"Choose reference columns:"
+enterNumColRef<-list()
+enterNumColRef[["sp"]]<-"Entrar num columna separados con coma:"
+enterNumColRef[["en"]]<-"Enter the number of the columns, separated by comas:"
+tryAgain<-list()
+tryAgain[["sp"]]<-"Intentar otra vez?"
+tryAgain[["en"]]<-"Try again?"
+dontUnderstand<-list()
+dontUnderstand[["sp"]]<-"No entiendo:"
+dontUnderstand[["en"]]<-"I don't understand:"
+byeMessage<-list()
+byeMessage[["sp"]]<-"Hasta la proxima!"
+byeMessage[["en"]]<-"Bye!"
+followingDuplicates<-list()
+followingDuplicates[["sp"]]<-"Siguientes duplicados en"
+followingDuplicates[["en"]]<-"Following duplicates in"
+dealWithDuplicates<-list()
+dealWithDuplicates[["sp"]]<-"Por favor escoger mejor los campos de referencia o\neliminar estos duplicados"
+dealWithDuplicates[["en"]]<-"Please better chosse the reference fields \n or eliminate these duplicates" 
+diffNbLines<-list()
+diffNbLines[["sp"]]<-"No hay el mismo numero de lineas:"
+diffNbLines[["en"]]<-"Tables have different number of lines:"
+tryFoundMissingLines<-list()
+tryFoundMissingLines[["sp"]]<-"Intento identificar las lineas que faltan."
+tryFoundMissingLines[["en"]]<-"Try to find the missing lines."
+linesOnlyIn<-list()
+linesOnlyIn[["sp"]]<- "Lineas solo en"
+linesOnlyIn[["en"]]<- "Lines only in"
+usingFields<-list()
+usingFields[["sp"]]<-"Utilizando:"
+usingFields[["en"]]<-"Using fields:"
+thereIs<-list()
+thereIs[["sp"]]<-"Hay:"
+thereIs[["en"]]<-"There are:"
+errorsIn<-list()
+errorsIn[["sp"]]<-"errores en"
+errorsIn[["en"]]<-"errors in"
+linesMes<-list()
+linesMes[["sp"]]<-"linias"
+linesMes[["en"]]<-"lines"
+errorMes<-list()
+errorMes[["sp"]]<-"Error"
+errorMes[["en"]]<-"Error"
+deMes<-list()
+deMes[["sp"]]<-"de"
+deMes[["en"]]<-"of"
+menuNoChange<-list()
+menuNoChange[["sp"]]<-"No se corrigio nada. Usted quiere:
+	s: stop? Parar la correccion (se va a salvar el estado corriente)?
+	r: regresar. Corregir de nuevo este error.
+	C: continuar.\n 
+	"
+menuNoChange[["en"]]<-"You didn't change anything. Do you want to:
+	s: stop? Stop to correct (your changes will be saved).
+	r: go back. Go back to correction windows of this error.
+	C: continue.\n 
+	"
+errorMatchCommon<-list()
+errorMatchCommon[["sp"]]<- "Hay problemas, hacer el match con parte commun de las tablas?"
+errorMatchCommon[["en"]]<- "There are problems, continue the match with only common part of both tables?"
+errorsAnalyseAgain<-list()
+errorsAnalyseAgain[["sp"]]<-"errores. Analysar de nuevo?"
+errorsAnalyseAgain[["en"]]<-"errors. Analyse again?"
+chooseProfil<-list()
+chooseProfil[["sp"]]<-"Escoge perfil"
+chooseProfil[["en"]]<-"Choose profile"
+profileNumber<-list()
+profileNumber[["sp"]]<-"Numero (nada permite entrar nuevo): "
+profileNumber[["en"]]<-"Profile number (nothing allows to enter it again): "
+dataBaseMes<-list()
+dataBaseMes[["sp"]]<-"Base de datos"
+dataBaseMes[["en"]]<-"Database"
+userMes<-list()
+userMes[["sp"]]<-"Usuario"
+userMes[["en"]]<-"User"
+passwordMes<-list()
+passwordMes[["sp"]]<-"Contrasenia?"
+passwordMes[["en"]]<-"Password?"
+connectionOkMes<-list()
+connectionOkMes[["sp"]]<-"Conneccion ok"
+connectionOkMes[["en"]]<-"Connection ok"
+saveConnectionMes<-list()
+saveConnectionMes[["sp"]]<-"Guardar la conneccion?"
+saveConnectionMes[["en"]]<-"Save connection?"
+connectionName<-list()
+connectionName[["sp"]]<-"Nombre connection? "
+connectionName[["en"]]<-"Nombre connection? "
+tableNameMySQL<-list()
+tableNameMySQL[["sp"]]<-"Nombre tabla en MySQL? "
+tableNameMySQL[["en"]]<-"Table name in MySQL? "
+choiceReplaceMySQL<-list()
+choiceReplaceMySQL[["sp"]]<-"Quiere remplazar todo, actualizar o aniadir?"
+choiceReplaceMySQL[["en"]]<-"Do you want to replace all, update or add?"
+tableNotSent<-list()
+tableNotSent[["sp"]]<-"Tabla no enviada"
+tableNotSent[["en"]]<-"Table not sent"
+tableSentSuccess<-list()
+tableSentSuccess[["sp"]]<-"Tabla exportada con exito"
+tableSentSuccess[["en"]]<-"Table successfully sent exported"
+tableNumber<-list()
+tableNumber[["sp"]]<-"Numero de la tabla?"
+tableNumber[["en"]]<-"Table number?"
+importCsvOrMysql<-list()
+importCsvOrMysql[["sp"]]<-"Importar csv o de mysql?"
+importCsvOrMysql[["en"]]<-"Import from csv or from MySQL?"
+originTableMes<-list()
+originTableMes[["sp"]]<-"Origen de la tabla"
+originTableMes[["en"]]<-"Origin of the table"
+tableDestination<-list()
+tableDestination[["sp"]]<-"Destinaccion de la tabla"
+tableDestination[["en"]]<-"Destination of the table"
+inFirstTable<-list()
+inFirstTable[["sp"]]<-"En la primera tabla."
+inFirstTable[["en"]]<-"In first table."
+inSecondTable<-list()
+inSecondTable[["sp"]]<-"En la secunda tabla."
+inSecondTable[["en"]]<-"In second table."
+getMissingMenu<-list()
+getMissingMenu[["sp"]]<-"Sacar los que faltan para Primera tabla, Secunda o los Dos?"
+getMissingMenu[["en"]]<-"Get the missing for first table(p), second table(s) or both(d)?"
+savingIn<-list()
+savingIn[["sp"]]<-"Salva las tablas corregidas en:"
+savingIn[["en"]]<-"Saving corrected tables in:"
+andMes<-list()
+andMes[["sp"]]<-"y"
+andMes[["en"]]<-"and"
+commonLinesSaved<-list()
+commonLinesSaved[["sp"]]<-"Nota: solo las lineas en ambas tablas son salvadas"
+commonLinesSaved[["en"]]<-"Nota: only lines existing in both tables are saved"
+exportTableMySQL<-list()
+exportTableMySQL[["sp"]]<-"Exportar la tabla a MySQL?"
+exportTableMySQL[["sp"]]<-"Export table to MySQL?"
+
+######################
 #### functiones
 ######################
-RMySQLok<-require("RMySQL")
-graphok<-require(gWidgetstcltk);
-cat("\nSi hay error antes de esta linea, no apurarse y continuar\n")
+RMySQLok<-suppressWarnings(require("RMySQL",quietly=TRUE))
+graphok<-suppressWarnings(require(gWidgetstcltk,quietly=TRUE));
+# cat(ignoreWarning[[lang]])
 # graphok<- FALSE # para forcar la activation /desactivaccion
 
 set_to<-function(x,init=c("NULL"),final=0){
@@ -60,7 +205,7 @@ checkColumns<-function(d1,d2){
 	solo1<-setdiff(names(d1),names(d2));
 	solo2<-setdiff(names(d2),names(d1));
 	if(length(solo1)>0 || length(solo2)){ # check for different names in columns
-		stop("columnas solo en:\n d1:",solo1,"\n d2:",solo2);
+		stop(columnsOnlyIn[[lang]],"\n d1:",solo1,"\n d2:",solo2);
 	}else{
 		# reorder columns if needed so that d2 has the same order than d1
 		d2<-d2[,match(names(d1),names(d2))]
@@ -70,18 +215,18 @@ checkColumns<-function(d1,d2){
 ## identifica referencias
 getRefCol<-function(db){
 	# return the columns number as chosen by user
-	cat("Escoger las columnas que van a servir de referencia:\n");
+	cat(referenceColumns[[lang]],"\n");
 	print(names(db));
-	refcoltxt<-readline("Entrar num columna separados con coma:[1,2] ");
+	refcoltxt<-readline(paste(enterNumColRef[[lang]],"[1,2] "));
 	refcol<-suppressWarnings(as.numeric(strsplit(refcoltxt,",")[[1]]));
 	if(refcoltxt==""){
 		refcol<-c(1,2);
 	}
 	if(length(which(is.na(refcol)))>0){
-		cat("No entiendo:",refcoltxt,"\n");
-		continue<-readline("Intentar otra vez?[Y/n] ");
+		cat(dontUnderstand[[lang]],refcoltxt,"\n");
+		continue<-readline(paste(tryAgain[[lang]],"[Y/n] "));
 		if(continue=="n"){
-			stop("Bye!");
+			stop(byeMessage);
 		}else{
 			refcol<-getRefCol(db);
 		}
@@ -102,13 +247,13 @@ checkDuplicates<-function(ref1,ref2){
 	dup1<-which(duplicated(ref1));
 	dup2<-which(duplicated(ref2));
 	if(length(dup1)>0){
-		cat("Siguientes duplicados en 1:\n",ref1[dup1]);
-		cat("\n\nPor favor escoger mejor los campos de referencia o\neliminar estos duplicados\n");
+		cat("\n",followingDuplicates[[lang]],"1:\n",ref1[dup1]);
+		cat("\n\n",dealWithDuplicates[[lang]],"\n");
 		matchok<-FALSE
 	}
 	if(length(dup2)>0){
-		cat("\nSiguientes duplicados en 2:\n",ref2[dup2]);
-		cat("\n\nPor favor escoger mejor los campos de referencia o\neliminar estos duplicados\n o ");
+		cat("\n",followingDuplicates[[lang]],"2:\n",ref2[dup2]);
+		cat("\n\n",dealWithDuplicates[[lang]],"\n");
 		matchok<-FALSE
 	}
 	return(matchok);
@@ -126,8 +271,8 @@ checkLines<-function(d1,d2,refcol1,refcol2=refcol1){
 	# check numero de linias
 	difdim<-(dim(d1)[1]!=dim(d2)[1]);
 	if(difdim){
-		cat("\nNo hay el mismo numero de lineas:\nd1:",dim(d1)[1],"\nd2:",dim(d2)[1]);
-		cat("\nIntento identificar las lineas que faltan.");
+		cat("\n",diffNbLines[[lang]],"\nd1:",dim(d1)[1],"\nd2:",dim(d2)[1]);
+		cat("\n",tryFoundMissingLines[[lang]]);
 		linesok<-FALSE
 	}
 	# verifica duplicados para referencias
@@ -137,13 +282,13 @@ checkLines<-function(d1,d2,refcol1,refcol2=refcol1){
 	solo1<-setdiff(ref1,ref2);
 	solo2<-setdiff(ref2,ref1);
 	if(length(solo1)>0){
-		cat("\n-lineas solo en 1:\n",solo1,"\n");
+		cat("\n",linesOnlyIn[[lang]],"1:\n",solo1,"\n");
 		rm1<-which(ref1 %in% solo1); # remueve los que solo estan en 1
 		d1<-d1[-rm1,];
 		linesok<-FALSE
 	}
 	if(length(solo2)>0){
-		cat("\n-lineas solo en 2:\n",solo2,"\n");
+		cat("\n",linesOnlyIn[[lang]],"2:\n",solo2,"\n");
 		rm2<-which(ref2 %in% solo2); # remueve los que solo estan en 2
 		d2<-d2[-rm2,];
 		linesok<-FALSE
@@ -157,7 +302,7 @@ checkSimStruct<-function(initd1d2){
 ### verificacion de la similaridad de las bases
 	checkColumns(d1,d2);
 	refcol<-getRefCol(d1);
-	cat("Utilizando:",refcol,"\n");
+	cat(usingFields[[lang]],refcol,"\n");
 
 	similard1d2<-checkLines(d1,d2,refcol,refcol);
 
@@ -221,14 +366,14 @@ CorrectMatch<-function(d1,d2,refcol,dif){
 	errorlinias<-which(errorperlinia>0);
 	errorcolumnas<-c(refcol,which(apply(dif,2,sum)>0));
 
-	cat("Hay:", sum(errorperlinia),"errores en",length(errorlinias),"linias\n");
+	cat(thereIs[[lang]], sum(errorperlinia),errorsIn[[lang]],length(errorlinias),linesMes[[lang]],"\n");
 
 	# offer correction
 	correc<-list();
 	count<-1;
 	while(count<=length(errorlinias)){
 		linia <- errorlinias[count] 
-		cat("Error",count,"de",length(errorlinias),"\n");
+		cat(errorMes[[lang]],count,deMes[[lang]],length(errorlinias),"\n");
 		# correct a copy
 		difcol<-c(refcol,which(dif[linia,]==TRUE));
 		original1<<-cbind(d1[linia,difcol]);
@@ -237,11 +382,7 @@ CorrectMatch<-function(d1,d2,refcol,dif){
 		correcto<-edit(original);
 		# ofrece de parar si no hay correcciones
 		if( isTRUE(all.equal(correcto,original,check.attributes=FALSE))){
-		    continue<-readline("No se corrigio nada. Usted quiere:
-	s: stop. Parar la correccion (se va a salvar el estado corriente)?
-	r: regresar. Corregir de nuevo este error.
-	C: continuar.\n 
-	")
+		    continue<-readline(menuNoChange[[lang]])
 		    if(continue=="s"){
 		      break()
 		    }else if(continue=="r"){
@@ -274,7 +415,7 @@ matchSimilar<-function(similard1d2){
 	d1<-similard1d2$d1;
 	d2<-similard1d2$d2;
 	if(! matchok){
-		continue<-readline("\n Hay problemas, hacer el match con parte commun de las bases?[y/N]");
+		continue<-readline(paste("\n",errorMatchCommon[[lang]],"[y/N]"));
 		if(continue=="y"){
 			matchok<-TRUE; # va a hacer el match
 		}else{
@@ -313,7 +454,7 @@ matchSimilar<-function(similard1d2){
 ### always save current version, just in case
 
 		dif<-getDifMat(d1,d2);
-		cat("Hay",sum(dif),"errores. Analysar de nuevo?[y/N]\n");
+		cat(thereIs[[lang]],sum(dif),errorsAnalyseAgain[[lang]],"[y/N]\n");
 		continue<-readline();
 		if(continue!="y"){
 		  matchok<-FALSE;
@@ -348,10 +489,10 @@ dbConnectSaved<-function(){
 	cnf<-readLines(mysqlcfgfile);
 	linesgroup<-grep("\\[",cnf,value=TRUE);
 	if(length(linesgroup)>0){
-		cat("Escoge perfil:\n");
+		cat(chooseProfil[[lang]],":\n",sep="");
 		print(linesgroup);
 		# numgroup<-1
-		numgroup<-readline("Numero (nada permite entrar nuevo): ");
+		numgroup<-readline(profileNumber[[lang]]);
 		oldgroup<-(numgroup %in% 1:length(linesgroup));	
 	}else{
 		oldgroup<-FALSE
@@ -366,7 +507,7 @@ dbConnectSaved<-function(){
 		if(host==""){
 			host<-"localhost";
 		}
-		db<-readline("Base de datos?[] ");
+		db<-readline(paste(dataBaseMes[[lang]],"?[] "));
 
 			if(.Platform$OS.type=="unix"){
 				user<-system("whoami",intern=TRUE);
@@ -374,20 +515,20 @@ dbConnectSaved<-function(){
 				user<-"";
 			}
 
-		cat("Usuario [",user,"]:",sep="");
+		cat(userMes[[lang]]," [",user,"]:",sep="");
 		input<-readline("");
 		if(input!=""){
 			user<-input
 		}	
-		password<-readline("Contrasenia?[] ");
+		password<-readline(paste(passwordMes[[lang]],"[] "));
 		con<-try(dbConnect(sqldriver,user=user,password=password,dbname=db,host=host));
 	}
 	if(class(con)!="try-error"){
-		cat("Conneccion ok\n");
+		cat(connectionOkMes[[lang]],"\n");
 			if(!oldgroup){
-			savegroup<-readline("Guardar la connection?[y/N] ");
+			savegroup<-readline(paste(saveConnectionMes[[lang]],"[y/N] "));
 			if(savegroup=="y"){
-				newgroup<-readline("Nombre connection? ");
+				newgroup<-readline(connectionName[[lang]]);
 				cat("[",newgroup,"]\n",file=mysqlcfgfile,append=TRUE,sep="");
 				cat("user =",user,"\n",file=mysqlcfgfile,append=TRUE);
 				cat("password =",password,"\n",file=mysqlcfgfile,append=TRUE);
@@ -406,12 +547,12 @@ dbExportMySQL<-function(df){
 	con<-dbConnectSaved();
 	
 	print(dbListTables(con));
-	tabla<-readline("Nombre tabla en MySQL? ");
+	tabla<-readline(tableNameMySQL[[lang]]);
 	
 	if(dbExistsTable(con,tabla)){
 		ready<-FALSE;
 		while(! ready){
-			mode<-readline("Quiere remplazar todo, actualizar o aniadir?[r/z/a/q] ");
+			mode<-readline(paste(choiceReplaceMySQL[[lang]],"[r/z/a/q] ",sep=""));
 			if(mode=="r"){
 				append<-FALSE;
 				overwrite<-TRUE;
@@ -424,7 +565,7 @@ dbExportMySQL<-function(df){
 # UPDATE `UPCH-AQP`.`DENUNCIAS` SET `RESUL_LABOR` = '1' WHERE `DENUNCIAS`.`numero registro` =4;
 
 			}else if(mode=="q"){
-				cat("Tabla no enviada\n");
+				cat(tableNotSent[[lang]],"\n");
 				return(FALSE);
 			}
 		}
@@ -435,7 +576,7 @@ dbExportMySQL<-function(df){
 	# df<-simplifyEncode(df);
 	succes<-dbWriteTable(con,tabla,df,append=append,overwrite=overwrite);
 	if(succes){
-		cat("Tabla exportada con exito\n");
+		cat(tableSentSuccess[[lang]],"\n");
 	}else{
 		cat("\n!!! Error\n\n");
 	}
@@ -450,7 +591,7 @@ dbImportMySQL<-function(){
 		while(numtabla<1 || numtabla>length(listTables)){
 			listTables<-dbListTables(con);
 			print(listTables);
-			numtabla<-as.integer(readline("Numero de la tabla? "));
+			numtabla<-as.integer(readline(tableNumber[[lang]]));
 		}
 		df<-dbReadTable(con,listTables[numtabla]);
 	}else{
@@ -463,7 +604,7 @@ dbImportMySQL<-function(){
 
 importDfs<-function(){
 	if(RMySQLok){
-		origine<-readline("Importar csv o de mysql?[c/M] ");
+		origine<-readline(paste(importCsvOrMysql[[lang]],"[c/M] "));
 	}else{
 		origine<-"c"
 	}
@@ -484,12 +625,12 @@ importDfs<-function(){
 	return(list(d1=d1,d2=d2));
 }
 cpMySQL<-function(struct=TRUE){
-	cat("Origen de la tabla?\n")
+	cat(originTableMes[[lang]],"?\n")
 	df<-dbImportMySQL()
 	if(struct){
 		df<-df[1,]
 	}
-	cat("\nDestinaccion de la tabla?\n")
+	cat("\n",tableDestination[[lang]],"?\n",sep="")
 	dbExportMySQL(df)
 	# usa mejor dbSendQuery
 	# CREATE TABLE `local`.`Table2` (
@@ -510,15 +651,15 @@ vincula<-function(){
 
 	d1<-initd1d2$d1
 	d2<-initd1d2$d2
-	cat("En la primera tabla.")
+	cat(inFirstTable[[lang]])
 	refcol1<-getRefCol(d1); # cual columnas usar para el merge
-	cat("En la secunda tabla.")
+	cat(inSecondTable[[lang]])
 	refcol2<-getRefCol(d2); # cual columnas usar para el merge
 
 	ref1<-getref(d1,refcol1); 
 	ref2<-getref(d2,refcol2);
 
-	cat("Sacar los que faltan para Primera tabla, Secunda o los Dos?[p/s/D]")
+	cat(getMissingMenu[[lang]],"[p/s/D]")
 	idMissing<-readline()
 	if(idMissing=="p"){
 		d2<-d2[ref2 %in% ref1,]
@@ -539,19 +680,19 @@ automatch<-function(){
 	corrected.d1d2<-matchSimilar(similard1d2); # verifica y corrige los valores
 
 	#### export result
-	cat("Salva las bases corregidas en:",d1correctedname,"y",d2correctedname,"\n");
-	cat("Nota: solo las lineas en ambas tablas son salvadas\n\n")
+	cat(savingIn[[lang]],d1correctedname,andMes[[lang]],d2correctedname,"\n");
+	cat(commonLinesSaved[[lang]],"\n\n")
 	write.csv(corrected.d1d2$d1,d1correctedname,row.names=FALSE);
 	write.csv(corrected.d1d2$d2,d2correctedname,row.names=FALSE);
 
 	send<-"y";
 	while(send=="y" & RMySQLok){
-		send<-readline("Exportar la tabla a MySQL?[y/N]");
+		send<-readline(paste(exportTableMySQL[[lang]],"[y/N]"));
 		if(send=="y"){
 			succes<-dbExportMySQL(corrected.d1d2$d1);
 			if(succes){
 				send<-"n";
-			}
+en	}
 		}
 	}
 	return(invisible(corrected.d1d2))
