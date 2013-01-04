@@ -37,7 +37,8 @@ If nothing is corrected, you will be offer the possibility to stop the match and
 Additional Features
 -------------------
 If the RMySQL package is installed, you will be offered the possibility to compare tables from a MySQL server and save there the result.
-This functionality is working but not actively further developped.
+This functionality is working but not actively further developped as is it allows to go a much longer way on a MySQL table than the simple "EXCEPT" or "NOT IN" commands.
+
 In the precence of the R graphical package gWidgetstcltk a graphical interface will allow you to select the files with the tables you want to compare.
 
 Linguistic note
