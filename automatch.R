@@ -2,7 +2,7 @@
 #### parametros
 ######################
  
-lang="sp" # ("sp" for spanish or "en" for english)
+lang="en" # ("sp" for spanish or "en" for english)
 d1correctedname<-"d1corrected.csv"
 d2correctedname<-"d2corrected.csv"
 
@@ -210,7 +210,7 @@ checkColumns<-function(d1,d2){
 		# reorder columns if needed so that d2 has the same order than d1
 		d2<-d2[,match(names(d1),names(d2))]
 	}
-	return();
+	return(list(d1=d1,d2=d2));
 }
 ## identifica referencias
 getRefCol<-function(db){
@@ -300,11 +300,11 @@ checkSimStruct<-function(initd1d2){
 	d1<-initd1d2$d1
 	d2<-initd1d2$d2
 ### verificacion de la similaridad de las bases
-	checkColumns(d1,d2);
-	refcol<-getRefCol(d1);
+	d1d2 <- checkColumns(d1,d2);
+	refcol<-getRefCol(d1d2$d1);
 	cat(usingFields[[lang]],refcol,"\n");
 
-	similard1d2<-checkLines(d1,d2,refcol,refcol);
+	similard1d2<-checkLines(d1d2$d1,d1d2$d2,refcol,refcol);
 
 	return(similard1d2);
 }

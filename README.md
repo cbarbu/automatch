@@ -18,7 +18,7 @@ You will be asked what are the files containing each database (should be in .csv
 
 _For example you can compare the d1.csv and the d2.csv given as examples here._
 
-Then it will ask you what are the reference fields: the fiels that should be used to match one table to the other.
+Then it will ask you what are the reference fields: the fields that should be used to match one table to the other.
 
 _In the example you should use "unicode" and "Codigo.Corral", simply pick Enter._
 
