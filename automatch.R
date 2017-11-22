@@ -35,7 +35,7 @@ followingDuplicates[["sp"]]<-"Siguientes duplicados en"
 followingDuplicates[["en"]]<-"Following duplicates in"
 dealWithDuplicates<-list()
 dealWithDuplicates[["sp"]]<-"Por favor escoger mejor los campos de referencia o\neliminar estos duplicados"
-dealWithDuplicates[["en"]]<-"Please better chosse the reference fields \n or eliminate these duplicates" 
+dealWithDuplicates[["en"]]<-"Please better choose the reference fields \n or eliminate these duplicates" 
 diffNbLines<-list()
 diffNbLines[["sp"]]<-"No hay el mismo numero de lineas:"
 diffNbLines[["en"]]<-"Tables have different number of lines:"
