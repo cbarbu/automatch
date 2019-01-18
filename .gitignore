@@ -3,4 +3,6 @@ archive
 .Rhistory
 d1corrected.csv
 d2corrected.csv
+.*.sw*
+.~lock.*
 
